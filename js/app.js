@@ -1,18 +1,18 @@
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 
-function handleSubmit() {
-  alert("he;o");
+let myForm = document.getElementById("myForm");
+
+myForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("form submitted");
   if (email.value == "ashanjameel78@gmail.com" && password.value == "pakindo") {
     console.log("hello world");
+    window.location.href = "../chat.html";
   } else {
     console.log("try again");
   }
-}
-
-function Void(e) {
-  e.preventDefault();
-}
+});
 
 function ChatA() {
   var chat_Sec = document.getElementById("Chat_Sec");

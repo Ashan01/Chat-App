@@ -20,8 +20,13 @@ body {
   color: blue;
   float: right;
 }
+#Chat_Sec {
+  height: 300px;
+  overflow-y: scroll;
+}
 #inputSec {
-  position: absolute;
-  bottom: auto;
-  left: 0;
+  /* display: flex; */
+}
+
+#chat_A {
 }

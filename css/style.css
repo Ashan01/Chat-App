@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+.container {
+  position: relative;
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.paraB {
+  color: blue;
+  float: right;
+}
+#inputSec {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+}

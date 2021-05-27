@@ -10,10 +10,10 @@ myForm.addEventListener("submit", (e) => {
   console.log("form submitted");
   if (email.value == "ashanjameel78@gmail.com" && password.value == "pakindo") {
     console.log("hello world");
-    window.location.href = "http://127.0.0.1:5500/chat.html";
+    window.location.href = "http://127.0.0.1:5500/chatB.html";
   } else {
     console.log("try again");
-    window.location.replace("../chat.html");
+    window.location.replace("../chatA.html");
     // window.location.href = "../chat.html";
   }
 });

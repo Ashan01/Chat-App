@@ -33,7 +33,6 @@ myForm.addEventListener("submit", (e) => {
 function handleMsg() {
   database.child(key).set({
     msg_A: msg_input.value,
-    msg_B: msg_input_B.value,
   });
 
   // let chat_Container = document.getElementById("chat_Container");
@@ -82,6 +81,9 @@ database.on("child_added", function (data) {
 });
 
 function handleMsgB() {
+  database.child(key).set({
+    msg_B: msg_input_B.value,
+  });
   // let chat_Container = document.getElementById("chat_Container");
   // let div1 = document.createElement("div");
   // let div2 = document.createElement("div");
@@ -112,3 +114,6 @@ function handleMsgB() {
   // msg_input.value = "";
   // chat_Container.appendChild(div1);
 }
+database.on("child_added", function (data) {
+  console.log(data.val());
+});

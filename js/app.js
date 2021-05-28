@@ -1,3 +1,12 @@
+/****************Global Variables**************/
+let msg_input = document.getElementById("msg_input");
+let msg_input_B = document.getElementById("msg_input_B");
+
+let database = firebase.database().ref("chat");
+let key = database.push().key;
+
+/****************Global Variables**************/
+
 /*****************Login Js**********************/
 
 let email = document.getElementById("email");
@@ -22,20 +31,11 @@ myForm.addEventListener("submit", (e) => {
 /*****************Login Js**********************/
 
 function handleMsg() {
-  let msg_input = document.getElementById("msg_input");
-
-  let database = firebase.database().ref("chat");
-  let key = database.push().key;
-
   database.child(key).set({
-    msg: msg_input.value,
+    msg_A: msg_input.value,
+    msg_B: msg_input_B.value,
   });
-  console.log("database==>", database);
-  console.log("firebase===>", firebase);
 
-  database.on("child_added", function (data) {
-    console.log("data===>", data.val());
-  });
   // let chat_Container = document.getElementById("chat_Container");
 
   // let div1 = document.createElement("div");
@@ -75,19 +75,14 @@ function handleMsg() {
   // chat_Container.appendChild(div1);
 }
 
+database.on("child_added", function (data) {
+  console.log("data===>A", data.val().msg_A);
+
+  console.log("data===>B", data.val().msg_B);
+});
+
 function handleMsgB() {
-  let msg_input = document.getElementById("msg_input");
-
-  let database = firebase.database().ref("chat1");
-  let key = database.push().key;
-
-  database.child(key).set({
-    msg: msg_input.value,
-  });
-  console.log("database==>", database);
-  console.log("firebase===>", firebase);
   // let chat_Container = document.getElementById("chat_Container");
-
   // let div1 = document.createElement("div");
   // let div2 = document.createElement("div");
   // let div3 = document.createElement("div");
@@ -95,7 +90,6 @@ function handleMsgB() {
   // let div5 = document.createElement("div");
   // let div6 = document.createElement("div");
   // let div7 = document.createElement("div");
-
   // div1.setAttribute("class", "msg right_msg");
   // div2.setAttribute("class", "msg_img");
   // div3.setAttribute("class", "Chat_sec Chat_sec_B");
@@ -103,20 +97,16 @@ function handleMsgB() {
   // div5.setAttribute("class", "msg_info_name");
   // div6.setAttribute("class", "msg_info_time");
   // div7.setAttribute("class", "msg_text");
-
   // div1.appendChild(div2);
   // div1.appendChild(div3);
   // div3.appendChild(div4);
   // div4.appendChild(div5);
   // div4.appendChild(div6);
   // div3.appendChild(div7);
-
   // var div6Text = document.createTextNode("12:56");
   // div6.append(div6Text);
-
   // var div5Text = document.createTextNode("Ashan");
   // div5.append(div5Text);
-
   // var div7Text = document.createTextNode(msg_input.value);
   // div7.append(div7Text);
   // msg_input.value = "";

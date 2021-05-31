@@ -36,6 +36,10 @@ function handleMsg() {
   database.child(key).set({
     msg_A: msg_input.value,
   });
+
+  database.on("child_added", function (data) {
+    console.log(data.val());
+  });
 }
 
 function handleMsgB() {
@@ -79,7 +83,3 @@ function handleMsgB() {
   // div7.append(div7Text);
   // msg_input_B.value = "";
 }
-
-database.on("child_added", function (data) {
-  console.log(data.val());
-});

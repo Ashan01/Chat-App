@@ -13,8 +13,8 @@ function handleMsg() {
 
     database.child(key).set({
       msg_A: msg_input.value,
-      name: "Esha",
-      time: "11:20",
+      name_A: "Esha",
+      time_A: "11:20",
     });
   } else {
     alert("this msg was empty");
@@ -49,7 +49,7 @@ database.on("child_added", function (data) {
     div3.appendChild(div7);
     var div6Text = document.createTextNode("12:56");
     div6.append(div6Text);
-    var div5Text = document.createTextNode(data.val().name_B);
+    var div5Text = document.createTextNode(data.val().name_A);
     div5.append(div5Text);
     var div7Text = document.createTextNode(data.val().msg_A);
     div7.append(div7Text);

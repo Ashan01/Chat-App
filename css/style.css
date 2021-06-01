@@ -126,6 +126,7 @@ body {
 }
 .msg_text {
   line-height: 1.5;
+  font-size: 20px;
 }
 .Chat_sec {
   max-width: 60%;

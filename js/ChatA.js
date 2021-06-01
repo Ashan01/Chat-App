@@ -8,20 +8,24 @@ let database = firebase.database().ref("chat");
 function handleMsg() {
   let msg_input = document.getElementById("msg_input");
 
-  let key = database.push().key;
+  if (msg_input.value !== "") {
+    let key = database.push().key;
 
-  database.child(key).set({
-    msg_A: msg_input.value,
-    name: "Esha",
-    time: "11:20",
-  });
+    database.child(key).set({
+      msg_A: msg_input.value,
+      name: "Esha",
+      time: "11:20",
+    });
+  } else {
+    alert("this msg was empty");
+  }
   msg_input.value = "";
 }
 
 database.on("child_added", function (data) {
   console.log(data.val());
 
-  if (data.val().msg_B !== undefined) {
+  if (data.val().msg_A !== undefined) {
     let div1 = document.createElement("div");
     chat_Container.appendChild(div1);
     let div2 = document.createElement("div");
@@ -31,7 +35,7 @@ database.on("child_added", function (data) {
     let div6 = document.createElement("div");
     let div7 = document.createElement("div");
     div1.setAttribute("class", "msg right_msg");
-    div2.setAttribute("class", "msg_img");
+    div2.setAttribute("class", "msg_img_B");
     div3.setAttribute("class", "Chat_sec Chat_sec_B");
     div4.setAttribute("class", "msg_info");
     div5.setAttribute("class", "msg_info_name");
@@ -45,15 +49,15 @@ database.on("child_added", function (data) {
     div3.appendChild(div7);
     var div6Text = document.createTextNode("12:56");
     div6.append(div6Text);
-    var div5Text = document.createTextNode("Ashan");
+    var div5Text = document.createTextNode(data.val().name_B);
     div5.append(div5Text);
-    var div7Text = document.createTextNode(data.val().msg_B);
+    var div7Text = document.createTextNode(data.val().msg_A);
     div7.append(div7Text);
   } else {
     console.log("this msg was undefined from msg B");
   }
 
-  if (data.val().msg_A !== undefined) {
+  if (data.val().msg_B !== undefined) {
     let div1_1 = document.createElement("div");
     chat_Container.appendChild(div1_1);
     let div2_2 = document.createElement("div");
@@ -77,9 +81,9 @@ database.on("child_added", function (data) {
     div3_3.appendChild(div7_7);
     var div6_6Text = document.createTextNode("12:56");
     div6_6.append(div6_6Text);
-    var div5_5Text = document.createTextNode("Esha");
+    var div5_5Text = document.createTextNode(data.val().name_B);
     div5_5.append(div5_5Text);
-    var div7_7Text = document.createTextNode(data.val().msg_A);
+    var div7_7Text = document.createTextNode(data.val().msg_B);
     div7_7.append(div7_7Text);
   } else {
     console.log("this msg was undefined from msg A");

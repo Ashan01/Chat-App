@@ -54,14 +54,14 @@ function handleMsg() {
 function handleMsgB() {
   let msg_input_B = document.getElementById("msg_input_B");
 
-  // let key = database.push().key;
+  let key = database.push().key;
 
-  // database.child(key).set({
-  //   msg_B: msg_input_B.value,
-  // name: "Ashan",
-  // time: 11:20
-  // });
-  // msg_input_B.value = "";
+  database.child(key).set({
+    msg_B: msg_input_B.value,
+    name: "Ashan",
+    time: "11:20",
+  });
+  msg_input_B.value = "";
 
   // let chat_Container = document.getElementById("chat_Container");
   // let div1 = document.createElement("div");

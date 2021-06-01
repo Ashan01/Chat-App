@@ -5,14 +5,21 @@ let myForm = document.getElementById("myForm");
 
 myForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("form submitted");
-  if (email.value == "ashanjameel78@gmail.com" && password.value == "1234") {
-    console.log("hello world");
-    window.location.replace("../chatB.html");
-  } else if (email.value == "esha@gmail.com" && password.value == "1234") {
-    window.location.replace("../chatA.html");
-    // window.location.href = "../chat.html";
-  } else {
-    alert("wrong email password");
-  }
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email.value, password.value)
+    .then((result) => {
+      if (result.user.email == "ashanjameel78@gmail.com") {
+        window.location.replace("../chatB.html");
+      } else if (result.user.email == "esha@gmail.com") {
+        window.location.replace("../chatA.html");
+      }
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+      console.log(errorCode);
+      alert(errorMessage);
+    });
 });

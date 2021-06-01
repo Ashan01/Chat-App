@@ -23,8 +23,6 @@ function handleMsg() {
 }
 
 database.on("child_added", function (data) {
-  console.log(data.val());
-
   if (data.val().msg_A !== undefined) {
     let div1 = document.createElement("div");
     chat_Container.appendChild(div1);
@@ -54,7 +52,6 @@ database.on("child_added", function (data) {
     var div7Text = document.createTextNode(data.val().msg_A);
     div7.append(div7Text);
   } else {
-    console.log("this msg was undefined from msg B");
   }
 
   if (data.val().msg_B !== undefined) {
@@ -86,6 +83,5 @@ database.on("child_added", function (data) {
     var div7_7Text = document.createTextNode(data.val().msg_B);
     div7_7.append(div7_7Text);
   } else {
-    console.log("this msg was undefined from msg A");
   }
 });

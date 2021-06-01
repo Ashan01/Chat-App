@@ -96,8 +96,7 @@ function handleMsgB() {
 database.on("child_added", function (data) {
   console.log(data.val());
 
-  if (data.val().msg_A !== undefined) {
-    let chat_Container = document.getElementById("chat_Container");
+  if (data.val().msg_B !== undefined) {
     let div1 = document.createElement("div");
     chat_Container.appendChild(div1);
     let div2 = document.createElement("div");
@@ -125,5 +124,39 @@ database.on("child_added", function (data) {
     div5.append(div5Text);
     var div7Text = document.createTextNode(data.val().msg_B);
     div7.append(div7Text);
+  } else {
+    console.log("this msg was undefined from msg B");
+  }
+
+  if (data.val().msg_A !== undefined) {
+    let div1_1 = document.createElement("div");
+    chat_Container.appendChild(div1_1);
+    let div2_2 = document.createElement("div");
+    let div3_3 = document.createElement("div");
+    let div4_4 = document.createElement("div");
+    let div5_5 = document.createElement("div");
+    let div6_6 = document.createElement("div");
+    let div7_7 = document.createElement("div");
+    div1_1.setAttribute("class", "msg left_msg");
+    div2_2.setAttribute("class", "msg_img");
+    div3_3.setAttribute("class", "Chat_sec ");
+    div4_4.setAttribute("class", "msg_info");
+    div5_5.setAttribute("class", "msg_info_name");
+    div6_6.setAttribute("class", "msg_info_time");
+    div7_7.setAttribute("class", "msg_text");
+    div1_1.appendChild(div2_2);
+    div1_1.appendChild(div3_3);
+    div3_3.appendChild(div4_4);
+    div4_4.appendChild(div5_5);
+    div4_4.appendChild(div6_6);
+    div3_3.appendChild(div7_7);
+    var div6_6Text = document.createTextNode("12:56");
+    div6_6.append(div6_6Text);
+    var div5_5Text = document.createTextNode("Esha");
+    div5_5.append(div5_5Text);
+    var div7_7Text = document.createTextNode(data.val().msg_A);
+    div7_7.append(div7_7Text);
+  } else {
+    console.log("this msg was undefined from msg A");
   }
 });

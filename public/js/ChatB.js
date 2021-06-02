@@ -8,10 +8,17 @@ function handleMsgB() {
   if (msg_input_B.value !== "") {
     let key = database.push().key;
 
+    let date = new Date();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let timeFormat = hour >= 12 ? "PM" : "AM";
+
+    let time = `${hour}:${min} ${timeFormat}`;
+
     database.child(key).set({
       msg_B: msg_input_B.value,
       name_B: "Ashan",
-      time_B: "11:20",
+      time_B: time,
     });
   } else {
     alert("this msg was empty");
@@ -40,9 +47,10 @@ database.on("child_added", function (data) {
     div1.appendChild(div3);
     div3.appendChild(div4);
     div4.appendChild(div5);
-    div4.appendChild(div6);
     div3.appendChild(div7);
-    var div6Text = document.createTextNode("12:56");
+    div3.appendChild(div6);
+
+    var div6Text = document.createTextNode(data.val().time_B);
     div6.append(div6Text);
     var div5Text = document.createTextNode(data.val().name_B);
     div5.append(div5Text);
@@ -71,14 +79,17 @@ database.on("child_added", function (data) {
     div1_1.appendChild(div3_3);
     div3_3.appendChild(div4_4);
     div4_4.appendChild(div5_5);
-    div4_4.appendChild(div6_6);
     div3_3.appendChild(div7_7);
-    var div6_6Text = document.createTextNode("12:56");
+    div3_3.appendChild(div6_6);
+
+    var div6_6Text = document.createTextNode(data.val().time_A);
     div6_6.append(div6_6Text);
     var div5_5Text = document.createTextNode(data.val().name_A);
     div5_5.append(div5_5Text);
     var div7_7Text = document.createTextNode(data.val().msg_A);
     div7_7.append(div7_7Text);
+
+    chat_Container.scrollTo(0, chat_Container.scrollHeight);
   } else {
   }
 });

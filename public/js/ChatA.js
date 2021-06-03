@@ -18,11 +18,11 @@ function handleMsg() {
 
     let time = `${hour}:${min} ${timeFormat}`;
 
-    // database.child(key).set({
-    //   msg_A: msg_input.value,
-    //   name_A: "Esha",
-    //   time_A: time,
-    // });
+    database.child(key).set({
+      msg_A: msg_input.value,
+      name_A: "Esha",
+      time_A: time,
+    });
   } else {
     alert("this msg was empty");
   }
@@ -95,4 +95,16 @@ database.on("child_added", function (data) {
     chat_Container.scrollTo(0, chat_Container.scrollHeight);
   } else {
   }
+});
+
+window.addEventListener("offline", () => {
+  var date = new Date();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  let timeFormat = hour >= 12 ? "PM" : "AM";
+  let time = `${hour}:${min} ${timeFormat}`;
+
+  database.child("lastseen").set({
+    lastseen_A: time,
+  });
 });

@@ -10,9 +10,9 @@ myForm.addEventListener("submit", (e) => {
     .signInWithEmailAndPassword(email.value, password.value)
     .then((result) => {
       if (result.user.email == "ashanjameel78@gmail.com") {
-        window.location.replace("/chatB.html");
+        window.location.replace("../chatB.html");
       } else if (result.user.email == "esha@gmail.com") {
-        window.location.replace("/chatA.html");
+        window.location.replace("../chatA.html");
       }
     })
     .catch((error) => {

@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
 
-<head>
-   <meta charset="UTF-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="css/style.css">
-   <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
 
-   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
-
-   <script>
-
+    <script>
       var firebaseConfig = {
-         apiKey: "AIzaSyAObUk4ESl2fFLcgEL2NGeeA7nl-CQoguQ",
-         authDomain: "ae-chat-app.firebaseapp.com",
-         databaseURL: "https://ae-chat-app-default-rtdb.firebaseio.com",
-         projectId: "ae-chat-app",
-         storageBucket: "ae-chat-app.appspot.com",
-         messagingSenderId: "538866006534",
-         appId: "1:538866006534:web:aeef51a8d6f798b666e187",
-         measurementId: "G-2E44DWFEVK"
+        apiKey: "AIzaSyAObUk4ESl2fFLcgEL2NGeeA7nl-CQoguQ",
+        authDomain: "ae-chat-app.firebaseapp.com",
+        databaseURL: "https://ae-chat-app-default-rtdb.firebaseio.com",
+        projectId: "ae-chat-app",
+        storageBucket: "ae-chat-app.appspot.com",
+        messagingSenderId: "538866006534",
+        appId: "1:538866006534:web:aeef51a8d6f798b666e187",
+        measurementId: "G-2E44DWFEVK",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-   </script>
+    </script>
+  </head>
 
-</head>
-
-<body>
-   <div id="main_Container">
-      <div id="img_Container"><img src="../img/undraw_remotely_2j6y.svg" alt="login_img"></div>
-      <div id="login_Container">
-         <div>
-            <h1>Login</h1>
-
-            <p>Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
-         </div>
-
-         <form id="myForm">
-            <input type="email" id="email" placeholder='Email'>
-            <input type="password" id="password" placeholder="Password">
-            <button type="submit">Login</button>
-         </form>
+  <body>
+    <div id="main_Container">
+      <div id="img_Container">
+        <img src="./img/undraw_remotely_2j6y.svg" alt="login_img" />
       </div>
-   </div>
+      <div id="login_Container">
+        <div>
+          <h1>Login</h1>
 
-   <script src="js/login.js">   </script>
-</body>
+          <p>
+            Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur
+            adipisicing.
+          </p>
+        </div>
 
+        <form id="myForm">
+          <input type="email" id="email" placeholder="Email" />
+          <input type="password" id="password" placeholder="Password" />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
 </html>

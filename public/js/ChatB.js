@@ -93,3 +93,15 @@ database.on("child_added", function (data) {
   } else {
   }
 });
+
+window.addEventListener("offline", () => {
+  var date = new Date();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  let timeFormat = hour >= 12 ? "PM" : "AM";
+  let time = `${hour}:${min} ${timeFormat}`;
+
+  database.child("lastseen").set({
+    lastseen_B: time,
+  });
+});
